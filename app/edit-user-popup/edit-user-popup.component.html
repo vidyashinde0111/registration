@@ -1,0 +1,29 @@
+<div class="popup-container" *ngIf="user">
+  <div class="popup">
+    <h2>Edit User</h2>
+    <form [formGroup]="editForm">
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" formControlName="firstName" />
+
+      <label for="mobileNumber">Mobile Number</label>
+      <input type="text" id="mobileNumber" formControlName="mobileNumber" />
+
+      <label for="state">State</label>
+      <select id="state" formControlName="state">
+        <option value="" disabled>Select a state</option>
+        <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+      </select>
+
+      <label for="city">City</label>
+      <select id="city" formControlName="city">
+        <option value="" disabled>Select a city</option>
+        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+      </select>
+
+      <button type="button" (click)="save()">Save</button>
+      <button type="button" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+</div>
+
+  
